@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="fetchScript.js" defer></script>
+    <title>Estoque MP</title>
+</head>
+<body>
+    <main>
+        <h1>Estoque 😃</h1>
+        <img src="https://thumbs.dreamstime.com/b/emoticon-de-passeio-31824620.jpg" style="width: 100px;">
+        <hr>
+        <form action="gravar.php" method="post">
+            <fieldset>
+                <div class="formulario">
+                    <div class="campoForm">
+                        <label>Descrição ✨</label>
+                        <input type="text" name="txt_desc" size="60" required>
+                    </div>
+        
+                    <div class="campoForm">
+                        <label>Categoria</label>
+                        <select name="slc_ctgr" id="dd_catgr" required>
+                            <option value="0">Eletrônicos</option>
+                            <option value="1">Limpeza</option>
+                            <option value="2">Papelaria</option>
+                        </select>
+                    </div>
+        
+                    <div class="campoForm">
+                        <label>Valor Compra</label>
+                        <input type="text" name="txt_vlrC" required>
+                    </div>
+        
+                    <div class="campoForm">
+                        <label>Valor Venda</label>
+                        <input type="text" name="txt_vlrV" required>
+                    </div>
+    
+                </div>
+                <br>
+                <div class="campoForm">
+                    <label>Quantidade em Estoque</label>
+                    <input type="text" name="txt_qtdE" required size="5">
+                </div>
+    
+                <br>
+                <br>
+                <div class="botoesForm">
+                    <input type="submit" formaction="gravar.php" value="Cadastrar produto 😊">
+                    <input type="submit" formaction="vender.php" value="Vender produto 😆">
+                </div>
+            </fieldset>
+        </form>
+        <div class="headerButton">
+            <h1>Inventário</h1>
+            <div style="align-self: center;">
+                <input type="text" style="margin-left: 100px;" name="txt_Termo" id="txt_Termo" placeholder="Pesquise">
+                <input type="button" class="btnPesquisar" id="btn_Pesquisar" value="Pesquisar">
+            </div>
+        </div>
+        <hr>
+        <div class="tbInv">
+            <table id="tbInv">
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Categoria</th>
+                        <th>Venda</th>
+                        <th>Lucro Unit.</th>
+                        <th>Estoque</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Computador</td>
+                        <td>Eletrônicos</td>
+                        <td>R$250,00</td>
+                        <td>R$350,00</td>
+                        <td>30</td>
+                        <td>Ação</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>
