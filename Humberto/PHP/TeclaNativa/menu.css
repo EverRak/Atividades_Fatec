@@ -1,0 +1,177 @@
+
+/* ========================================
+   MENU SUSPENSO
+   ======================================== */
+
+.dropdown {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    height: 100%;
+
+    cursor: pointer;
+}
+
+/* Painel flutuante */
+
+.dropdown-content {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    z-index: 1000;
+
+    min-width: 235px;
+    padding: 9px;
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 17px;
+
+    box-shadow: 0 16px 40px rgba(38, 46, 39, 0.14);
+
+    text-align: left;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(8px) scale(0.98);
+    transform-origin: top right;
+
+    transition:
+        opacity 180ms ease,
+        transform 180ms ease,
+        visibility 180ms ease;
+}
+
+/* Pequena faixa decorativa */
+
+.dropdown-content::after {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 14px;
+    right: 14px;
+
+    height: 3px;
+
+    background: var(--primary);
+    border-radius: 0 0 5px 5px;
+}
+
+/* Estado aberto */
+
+.dropdown-content.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateY(0) scale(1);
+}
+
+/* Indicador superior */
+
+.dropdown-content::before {
+    content: '';
+
+    position: absolute;
+    top: -7px;
+    right: 24px;
+
+    width: 12px;
+    height: 12px;
+
+    background: var(--surface);
+
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+
+    transform: rotate(45deg);
+}
+
+/* Links e textos */
+
+.dropdown-content a,
+.dropdown-content p {
+    position: relative;
+    z-index: 1;
+
+    display: block;
+
+    margin: 3px 0;
+    padding: 12px 13px;
+
+    color: var(--text-secondary);
+
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.45;
+    text-decoration: none;
+
+    transition:
+        color 160ms ease,
+        background 160ms ease,
+        padding-left 160ms ease;
+}
+
+/* Saudação do usuário */
+
+.dropdown-content p.ola {
+    margin: 4px 0 9px;
+    padding: 15px 13px;
+
+    color: var(--text);
+    background: var(--bg);
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    font-weight: 800;
+}
+
+/* Links ao passar o mouse */
+
+.dropdown-content a:hover {
+    color: var(--primary-hover);
+    background: var(--primary-light);
+    padding-left: 18px;
+}
+
+/* Foco por teclado */
+
+.dropdown-content a:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: -2px;
+}
+
+/* Ajustes para telas pequenas */
+
+@media (max-width: 768px) {
+    .dropdown-content {
+        right: 50%;
+        min-width: 220px;
+
+        transform: translate(50%, 8px) scale(0.98);
+        transform-origin: top center;
+    }
+
+    .dropdown-content.show {
+        transform: translate(50%, 0) scale(1);
+    }
+
+    .dropdown-content::before {
+        right: calc(50% - 6px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dropdown-content,
+    .dropdown-content a {
+        transition: none;
+    }
+}

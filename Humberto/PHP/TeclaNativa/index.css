@@ -1,0 +1,681 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* ========================================
+   PALETA E CONFIGURAÇÕES GLOBAIS
+   ======================================== */
+
+:root {
+    color-scheme: light;
+
+    --bg: #f6f4ef;
+    --surface: #e7e6e0;
+    --surface-secondary: #eeece5;
+    --surface-hover: #e8e7df;
+
+    --text: #292d29;
+    --text-secondary: #73766e;
+    --text-light: #999b92;
+
+    --primary: #5b735e;
+    --primary-hover: #465d49;
+    --primary-light: #e5ece3;
+    --primary-contrast: #ffffff;
+
+    --accent: #c87952;
+    --accent-hover: #ad603c;
+    --accent-light: #f7e9df;
+
+    --danger: #b84e49;
+    --success: #4d7958;
+
+    --border: #e3e0d7;
+    --border-strong: #d1cec3;
+
+    --shadow-sm: 0 2px 8px rgba(42, 45, 38, 0.04);
+    --shadow-md: 0 8px 24px rgba(42, 45, 38, 0.07);
+    --shadow-lg: 0 16px 40px rgba(42, 45, 38, 0.12);
+
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+    --radius-pill: 999px;
+
+    --font-body: 'DM Sans', sans-serif;
+    --font-heading: 'Manrope', sans-serif;
+
+    --content-width: 1280px;
+    --transition: 180ms ease;
+}
+
+/* ========================================
+   RESET
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    background: var(--bg);
+    color: var(--text);
+
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.6;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+    font-family: var(--font-body);
+}
+
+button,
+input,
+select,
+textarea {
+    font-size: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    color: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+::selection {
+    background: var(--primary-light);
+    color: var(--primary-hover);
+}
+
+:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+}
+
+/* ========================================
+   CABEÇALHO
+   ======================================== */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    min-height: 82px;
+    padding: 16px clamp(20px, 5vw, 64px);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+
+    background: rgba(255, 254, 250, 0.94);
+    border-bottom: 1px solid var(--border);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+header h1 {
+    flex-shrink: 0;
+
+    color: var(--text);
+    font-family: var(--font-heading);
+    font-size: clamp(21px, 2vw, 27px);
+    font-weight: 800;
+    letter-spacing: -1.4px;
+    line-height: 1.2;
+}
+
+header h1 span {
+    color: var(--primary);
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: clamp(16px, 2.5vw, 32px);
+
+    list-style: none;
+}
+
+nav a {
+    position: relative;
+
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: color var(--transition);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -7px;
+    left: 0;
+
+    height: 2px;
+    background: var(--primary);
+    border-radius: var(--radius-pill);
+
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition);
+}
+
+nav a:hover {
+    color: var(--primary-hover);
+}
+
+nav a:hover::after {
+    transform: scaleX(1);
+}
+
+/* ========================================
+   CONTEÚDO PRINCIPAL
+   ======================================== */
+
+main {
+    flex: 1;
+    width: 100%;
+    max-width: var(--content-width);
+
+    margin: 0 auto;
+    padding: clamp(24px, 4vw, 48px);
+}
+
+/* ========================================
+   BANNER PRINCIPAL
+   ======================================== */
+
+.hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    margin-bottom: 64px;
+    padding: clamp(48px, 8vw, 100px) 24px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            ellipse at 10% 100%,
+            rgba(200, 121, 82, 0.13),
+            transparent 45%
+        ),
+        radial-gradient(
+            ellipse at 90% 0%,
+            rgba(91, 115, 94, 0.15),
+            transparent 45%
+        ),
+        var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+}
+
+.hero h2 {
+    max-width: 760px;
+    margin: 0 auto 20px;
+
+    color: var(--text);
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 5vw, 54px);
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1.15;
+}
+
+.hero p {
+    max-width: 580px;
+    margin: 0 auto;
+
+    color: var(--text-secondary);
+    font-size: clamp(15px, 2vw, 18px);
+    line-height: 1.8;
+}
+
+/* ========================================
+   VITRINE
+   ======================================== */
+
+.vitrine {
+    margin-bottom: 48px;
+}
+
+.vitrine h2 {
+    margin-bottom: 28px;
+
+    color: var(--text);
+    font-family: var(--font-heading);
+    font-size: clamp(23px, 3vw, 30px);
+    font-weight: 800;
+    letter-spacing: -0.8px;
+}
+
+.vitrine h2::after {
+    content: '';
+    display: block;
+
+    width: 42px;
+    height: 4px;
+    margin-top: 12px;
+
+    background: var(--primary);
+    border-radius: var(--radius-pill);
+}
+
+/* ========================================
+   CATÁLOGO
+   ======================================== */
+
+.catalogo {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+}
+
+/* ========================================
+   CARD DO PRODUTO
+   ======================================== */
+
+.produto-card {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 12px;
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform 220ms ease,
+        box-shadow 220ms ease,
+        border-color 220ms ease;
+}
+
+.produto-card:hover {
+    transform: translateY(-5px);
+    border-color: #c9d4c7;
+    box-shadow: var(--shadow-md);
+}
+
+/* Imagem do produto */
+
+.img-wrapper {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    margin-bottom: 18px;
+
+    background: var(--surface-secondary);
+    border-radius: 10px;
+}
+
+.produto-card img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 350ms ease;
+}
+
+.produto-card:hover img {
+    transform: scale(1.045);
+}
+
+/* ========================================
+   BADGE DE ESTOQUE
+   ======================================== */
+
+.badge-estoque {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    z-index: 2;
+
+    padding: 5px 10px;
+
+    color: var(--text);
+    background: rgba(255, 254, 250, 0.94);
+
+    border: 1px solid rgba(227, 224, 215, 0.9);
+    border-radius: var(--radius-pill);
+
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.4;
+
+    box-shadow: var(--shadow-sm);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(5px);
+
+    transition:
+        opacity var(--transition),
+        transform var(--transition),
+        visibility var(--transition);
+
+    pointer-events: none;
+}
+
+.img-wrapper:hover .badge-estoque,
+.produto-card:focus-within .badge-estoque {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* ========================================
+   INFORMAÇÕES DO PRODUTO
+   ======================================== */
+
+.produto-card h3 {
+    margin-bottom: 8px;
+
+    color: var(--text);
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.5;
+
+    overflow-wrap: anywhere;
+}
+
+.produto-card .preco {
+    margin-bottom: 18px;
+
+    color: var(--primary-hover);
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.6px;
+}
+
+/* ========================================
+   BOTÕES
+   ======================================== */
+
+.btn {
+    width: 100%;
+    min-height: 44px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 11px 18px;
+
+    color: var(--primary-contrast);
+    background: var(--primary);
+
+    border: 1px solid var(--primary);
+    border-radius: var(--radius-sm);
+
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition),
+        border-color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.btn:hover {
+    background: var(--primary-hover);
+    border-color: var(--primary-hover);
+    box-shadow: 0 4px 12px rgba(70, 93, 73, 0.15);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Produto esgotado */
+
+.btn-esgotado {
+    width: 100%;
+    min-height: 44px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 11px 18px;
+
+    color: var(--text-light);
+    background: var(--surface-secondary);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+
+    cursor: not-allowed;
+}
+
+/* Botão secundário */
+
+.btn-outline {
+    width: auto;
+    min-height: 46px;
+
+    padding: 12px 26px;
+
+    color: var(--primary-hover);
+    background: transparent;
+
+    border: 1px solid var(--primary);
+    border-radius: var(--radius-sm);
+
+    font-weight: 700;
+    text-decoration: none;
+
+    transition:
+        color var(--transition),
+        background var(--transition),
+        border-color var(--transition);
+}
+
+.btn-outline:hover {
+    color: white;
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-container {
+    margin-top: 40px;
+    text-align: center;
+}
+
+/* ========================================
+   RODAPÉ
+   ======================================== */
+
+footer {
+    margin-top: auto;
+    padding: 28px 24px;
+
+    color: var(--text-secondary);
+    background: #eeece5;
+
+    border-top: 1px solid var(--border);
+
+    font-size: 13px;
+    text-align: center;
+}
+
+footer a {
+    color: var(--primary-hover);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
+
+@media (min-width: 1500px) {
+    .catalogo {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 1100px) {
+    .catalogo {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    header {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        position: relative;
+
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+        padding: 22px 20px;
+    }
+
+    nav ul {
+        justify-content: center;
+        gap: 16px 22px;
+    }
+
+    main {
+        padding: 24px 20px;
+    }
+
+    .hero {
+        margin-bottom: 42px;
+        border-radius: var(--radius-md);
+    }
+
+    .hero h2 {
+        letter-spacing: -1.2px;
+    }
+
+    .catalogo {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .produto-card {
+        padding: 9px;
+    }
+
+    .produto-card h3 {
+        font-size: 14px;
+    }
+
+    .produto-card .preco {
+        font-size: 19px;
+    }
+
+    .badge-estoque {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+}
+
+@media (max-width: 380px) {
+    .catalogo {
+        grid-template-columns: 1fr;
+    }
+
+    .produto-card {
+        padding: 12px;
+    }
+
+    .img-wrapper {
+        max-height: 320px;
+    }
+}
+
+/* ========================================
+   MOVIMENTO REDUZIDO
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

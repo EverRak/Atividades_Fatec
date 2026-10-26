@@ -1,0 +1,555 @@
+/* ========================================
+   TECLA NATIVA — LOGIN E CADASTRO
+   ======================================== */
+
+.pagina-acesso {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #F4F0E6;
+    color: #343C35;
+}
+
+.pagina-acesso header.acesso-header {
+    width: 100%;
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 16px clamp(20px, 5vw, 72px);
+    background: #F4F0E6;
+    border-bottom: 1px solid #E2DED3;
+}
+
+.acesso-header .marca {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    color: #343C35;
+    text-decoration: none;
+}
+
+.marca-simbolo {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    color: #F4F0E6;
+    background: #465D49;
+    border-radius: 13px 13px 13px 4px;
+    font-family: var(--font-heading, sans-serif);
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+.marca-texto {
+    display: grid;
+    color: #343C35;
+    font-family: var(--font-heading, sans-serif);
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: -0.8px;
+    line-height: 1;
+}
+
+.marca-texto > span {
+    display: inline;
+    color: #6E866A;
+}
+
+.marca-texto small {
+    margin-top: 6px;
+    color: #788174;
+    font-family: var(--font-body, sans-serif);
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+}
+
+.voltar-loja {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: #465D49;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.voltar-loja:hover {
+    color: #2F4332;
+}
+
+.acesso-layout {
+    flex: 1;
+    width: 100%;
+    min-height: 620px;
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(440px, 1.08fr);
+}
+
+.acesso-lateral {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: clamp(35px, 6vw, 86px);
+    color: #F4F0E6;
+    background: #465D49;
+    isolation: isolate;
+}
+
+.lateral-conteudo {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 490px;
+    margin: 0 auto;
+}
+
+.acesso-etiqueta {
+    margin: 0 0 22px;
+    color: #D4DDCB;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.acesso-lateral h1 {
+    margin: 0;
+    color: #F7F4EC;
+    font-family: var(--font-heading, sans-serif);
+    font-size: clamp(38px, 5vw, 62px);
+    font-weight: 900;
+    line-height: 1.02;
+    letter-spacing: -2.7px;
+}
+
+.acesso-lateral .lateral-conteudo > p:not(.acesso-etiqueta) {
+    max-width: 390px;
+    margin: 22px 0 0;
+    color: #D6DED2;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.teclado-ilustracao {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(35px, 1fr));
+    gap: 8px;
+    max-width: 365px;
+    margin-top: 39px;
+    transform: rotate(-4deg);
+}
+
+.teclado-ilustracao span {
+    min-height: 43px;
+    display: grid;
+    place-items: center;
+    color: #465D49;
+    background: #E9E4D8;
+    border-bottom: 4px solid #C8C1B2;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 900;
+    box-shadow: 0 5px 0 rgba(35, 48, 36, 0.18);
+}
+
+.teclado-ilustracao span:nth-child(3n) {
+    color: #F4F0E6;
+    background: #82977B;
+    border-bottom-color: #60775D;
+}
+
+.teclado-ilustracao span:nth-child(4n) {
+    background: #D2B995;
+    border-bottom-color: #B29A75;
+}
+
+.teclado-ilustracao .tecla-larga {
+    grid-column: span 2;
+}
+
+.lateral-rodape {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 35px;
+    color: #D4DDCB;
+    font-size: 11px;
+    letter-spacing: 0.3px;
+}
+
+.lateral-rodape span {
+    width: 22px;
+    height: 1px;
+    background: #D4DDCB;
+}
+
+.forma-decorativa {
+    position: absolute;
+    z-index: -1;
+    border: 1px solid rgba(244, 240, 230, 0.12);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.forma-um {
+    width: 430px;
+    height: 430px;
+    right: -230px;
+    top: -170px;
+}
+
+.forma-dois {
+    width: 340px;
+    height: 340px;
+    left: -240px;
+    bottom: -160px;
+}
+
+.acesso-conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(32px, 6vw, 80px);
+    background: #FBF9F3;
+}
+
+.formulario-acesso {
+    width: 100%;
+    max-width: 420px;
+}
+
+.formulario-simbolo {
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 25px;
+    color: #465D49;
+    background: #E4E9DE;
+    border: 1px solid #D5DFD0;
+    border-radius: 14px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.formulario-kicker {
+    margin: 0 0 10px;
+    color: #71866C;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.7px;
+}
+
+.formulario-acesso h2 {
+    margin: 0;
+    color: #343C35;
+    font-family: var(--font-heading, sans-serif);
+    font-size: clamp(30px, 3vw, 38px);
+    font-weight: 900;
+    line-height: 1.12;
+    letter-spacing: -1.5px;
+}
+
+.formulario-descricao {
+    margin: 12px 0 27px;
+    color: #788174;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.aviso-formulario {
+    margin: 0 0 18px;
+    padding: 12px 14px;
+    color: #873E35;
+    background: #F8E9E6;
+    border: 1px solid #E9C9C2;
+    border-radius: 10px;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.form-acesso {
+    display: grid;
+    gap: 9px;
+}
+
+.form-acesso label {
+    margin-top: 8px;
+    color: #414A40;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.form-acesso input {
+    width: 100%;
+    min-height: 49px;
+    padding: 13px 14px;
+    color: #343C35;
+    background: #FFFFFF;
+    border: 1px solid #DCDDD2;
+    border-radius: 10px;
+    outline: none;
+    font-family: var(--font-body, sans-serif);
+    font-size: 13px;
+    transition: border-color 150ms ease, box-shadow 150ms ease, background 150ms ease;
+}
+
+.form-acesso input::placeholder {
+    color: #A0A59A;
+}
+
+.form-acesso input:hover {
+    border-color: #B9C5B3;
+}
+
+.form-acesso input:focus {
+    background: #FFF;
+    border-color: #71866C;
+    box-shadow: 0 0 0 3px rgba(113, 134, 108, 0.14);
+}
+
+.botao-acesso {
+    width: 100%;
+    min-height: 51px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 17px;
+    padding: 14px 17px;
+    color: #FFFFFF;
+    background: #465D49;
+    border: 0;
+    border-radius: 11px;
+    font-family: var(--font-body, sans-serif);
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 150ms ease, transform 150ms ease;
+}
+
+.botao-acesso span {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.botao-acesso:hover {
+    background: #344737;
+    transform: translateY(-1px);
+}
+
+.botao-acesso:active {
+    transform: translateY(0);
+}
+
+.troca-acesso {
+    margin: 23px 0 0;
+    color: #788174;
+    font-size: 12px;
+    text-align: center;
+}
+
+.troca-acesso a {
+    color: #465D49;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.troca-acesso a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.nota-acesso {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    margin: 24px 0 0;
+    color: #92978D;
+    font-size: 10px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.nota-acesso span {
+    color: #82977B;
+}
+
+.acesso-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 17px clamp(20px, 5vw, 72px);
+    color: #82877D;
+    background: #F4F0E6;
+    border-top: 1px solid #E2DED3;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+}
+
+.pagina-cadastro .acesso-layout {
+    grid-template-columns: minmax(0, 0.92fr) minmax(440px, 1.08fr);
+}
+
+.pagina-cadastro .acesso-lateral {
+    background: #3D5140;
+}
+
+.pagina-cadastro .acesso-conteudo {
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+
+.pagina-cadastro .formulario-simbolo {
+    margin-bottom: 18px;
+}
+
+.pagina-cadastro .formulario-descricao {
+    margin-bottom: 18px;
+}
+
+.pagina-cadastro .form-acesso {
+    gap: 6px;
+}
+
+.pagina-cadastro .form-acesso input {
+    min-height: 44px;
+    padding: 11px 13px;
+}
+
+.pagina-cadastro .botao-acesso {
+    margin-top: 13px;
+}
+
+@media (max-width: 900px) {
+    .acesso-layout,
+    .pagina-cadastro .acesso-layout {
+        grid-template-columns: minmax(0, 0.8fr) minmax(390px, 1.2fr);
+    }
+
+    .acesso-lateral {
+        padding: 35px;
+    }
+
+    .acesso-conteudo {
+        padding: 35px;
+    }
+
+    .teclado-ilustracao {
+        gap: 5px;
+    }
+
+    .teclado-ilustracao span {
+        min-height: 35px;
+    }
+}
+
+@media (max-width: 700px) {
+    .pagina-acesso header.acesso-header {
+        min-height: 72px;
+        padding: 13px 18px;
+    }
+
+    .marca-simbolo {
+        width: 37px;
+        height: 37px;
+    }
+
+    .marca-texto {
+        font-size: 18px;
+    }
+
+    .marca-texto small {
+        font-size: 7px;
+    }
+
+    .voltar-loja {
+        font-size: 12px;
+    }
+
+    .acesso-layout,
+    .pagina-cadastro .acesso-layout {
+        display: flex;
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .acesso-lateral {
+        min-height: 260px;
+        padding: 34px 25px;
+    }
+
+    .acesso-lateral h1 {
+        font-size: 39px;
+        letter-spacing: -1.8px;
+    }
+
+    .acesso-etiqueta {
+        margin-bottom: 13px;
+    }
+
+    .acesso-lateral .lateral-conteudo > p:not(.acesso-etiqueta) {
+        margin-top: 14px;
+        font-size: 12px;
+    }
+
+    .teclado-ilustracao {
+        display: none;
+    }
+
+    .lateral-rodape {
+        margin-top: 22px;
+    }
+
+    .acesso-conteudo {
+        padding: 38px 24px 45px;
+    }
+
+    .formulario-acesso {
+        max-width: 460px;
+    }
+
+    .formulario-simbolo {
+        margin-bottom: 18px;
+    }
+
+    .acesso-footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 390px) {
+    .voltar-loja {
+        gap: 4px;
+        font-size: 11px;
+    }
+
+    .marca-texto small {
+        letter-spacing: 0.7px;
+    }
+
+    .acesso-lateral {
+        min-height: 235px;
+    }
+
+    .acesso-lateral h1 {
+        font-size: 34px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .form-acesso input,
+    .botao-acesso {
+        transition: none;
+    }
+}
